@@ -4,14 +4,14 @@ add this
 ---------------------------------------------- 
 [www]
         comment = web server
-        path = /home/dannyko/www
+        path = /home/jacky/www
         browsable = yes
         writable = yes
 ----------------------------------------------        
 vi save :wq!
 add port: firewall-cmd --permanent --zone=public --add-service=samba
 firewall-cmd --reload
-smbpasswd -a dannyko
+smbpasswd -a jacky
 New SMB password:
 Retype new SMB password:
 systemctl start smb 
