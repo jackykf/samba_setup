@@ -1,11 +1,13 @@
 yum install samba samba-client samba-common
 vi /etc/samba/smb.conf
-add this 
+add this
+---------------------------------------------- 
 [www]
         comment = web server
         path = /home/dannyko/www
         browsable = yes
         writable = yes
+----------------------------------------------        
 vi save :wq!
 add port: firewall-cmd --permanent --zone=public --add-service=samba
 firewall-cmd --reload
