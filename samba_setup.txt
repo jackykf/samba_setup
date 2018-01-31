@@ -1,0 +1,21 @@
+yum install samba samba-client samba-common
+vi /etc/samba/smb.conf
+add this 
+[www]
+        comment = web server
+        path = /home/dannyko/www
+        browsable = yes
+        writable = yes
+vi save :wq!
+add port: firewall-cmd --permanent --zone=public --add-service=samba
+firewall-cmd --reload
+smbpasswd -a dannyko
+New SMB password:
+Retype new SMB password:
+systemctl start smb 
+systemctl restart smb 
+testparm
+cd to www dir
+chmod -R 0777 www/
+chcon -t samba_share_t www/
+systemctl restart smb.service
